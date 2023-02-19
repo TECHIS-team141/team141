@@ -1,0 +1,60 @@
+/* 全体 */
+html{
+    background-color:black;
+}
+
+body{
+    min-height:100vh;
+    display: flex;
+    align-items: center;
+}
+
+.button{
+    padding: 10px;
+    font-size: 18px;
+    width: 250px;
+    margin: 0 auto;
+}
+
+/* ログイン画面 */
+.login{
+    width: 400px;
+    height: 500px;
+    margin: auto;
+    padding-top: 50px;
+}
+
+.title{
+    /* border: 1px solid black; */
+    height: 40px;
+    padding-top: 5px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.title2{
+    margin: auto;
+    text-align: center;
+}
+.index{
+    text-align: center;
+    margin-top: 10px;
+}
+.inputarea{
+    margin-bottom: 15px;
+}
+.loginbtn{
+    width: 80%;
+    margin: 30px auto;
+}
+
+
+/* サインアップ */
+.signup{
+    width: 400px;
+    height: 500px;
+    margin: auto;
+}
+.signupbtn{
+    width: 80%;
+    margin: 30px auto;
+}
