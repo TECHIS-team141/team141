@@ -3,13 +3,16 @@
 @section('content')
  
 <div class="btn-top">
-    <!-- 検索ボタン-->
+    <!-- 検索フォーム-->
     <div class="search-btn">
+    <form action="{{url('/search')}}" method="get">
         <div class="input-group">
-                <input type="text" name="keyword" class="form-control" placeholder="キーワードを入力">
-                <button class="btn btn-primary" type="submit" id="button-addon2">検索</button>
+            <input type="text" name="keyword" value="@if (isset($keyword)) {{ $keyword }} @endif" class="form-control" placeholder="キーワードを入力">
         </div>
+        <input type="submit" value="検索" class="btn btn-info">
+    </form>
     </div>
+
     <!-- 商品登録遷移ボタン-->
     <div class="register-btn">
         <button class="btn btn-secondary" type="button" id="button-addon2">商品登録</button>
@@ -17,7 +20,6 @@
 </div>
 
 <!-- タスク一覧表示 -->
-@if (count($items) > 0)
 <div class="card">
   <h5 class="card-header">
         商品一覧
@@ -56,7 +58,7 @@
                         <div>{{ $item->created_at }}</div>
                     </td>
                     <td class="table-text">
-                    <a href="#">詳細情報</a>
+                    <a href="detail?id={{ $item->id }}">詳細情報</a>
                     </td>
  
                     <td>
@@ -68,5 +70,4 @@
         </table>
     </div>
 </div>
-@endif
 @endsection
