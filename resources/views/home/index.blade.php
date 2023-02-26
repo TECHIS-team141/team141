@@ -18,12 +18,15 @@
     <p class="text-muted text-center">"user_id"さんようこそ！！</p>
 
     <ul class="slider">
-        <li><img src="/img/book.jpg" alt=""></li>
-        <li><img src="/img/book2.jpg" alt=""></li>
-        <li><img src="/img/kuma.jpg" alt=""></li>
-        <li><img src="/img/nezumi.jpg" alt=""></li>
-        <li><img src="/img/kuma2.jpg" alt=""></li>
-        <li><img src="/img/nezumi.jpg" alt=""></li>
+        <li><img src="/img/book.jpg" class="rounded" alt=""></li> <!--クラスを追加することで画像の角を丸に-->
+        <li><img src="/img/women.jpg" class="rounded" alt=""></li>
+        <li><img src="/img/book2.jpg" class="rounded" alt=""></li>
+        <li><img src="/img/cat2.jpg" class="rounded" alt=""></li>
+        <li><img src="/img/kuma.jpg" class="rounded" alt=""></li>
+        <li><img src="/img/nezumi.jpg" class="rounded" alt=""></li>
+        <li><img src="/img/kuma2.jpg" class="rounded" alt=""></li>
+        <li><img src="/img/zou.jpg" class="rounded" alt=""></li>
+        <li><img src="/img/nezumi.jpg" class="rounded" alt=""></li>
     <!--/slider--></ul>
 
     <div class="p-5">
