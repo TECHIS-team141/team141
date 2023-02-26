@@ -17,6 +17,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">ユーザー管理</a>  <!-- 管理者のみ見えるボタン -->
                 </li>
+                
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">ログアウト</a>
                 </li>
