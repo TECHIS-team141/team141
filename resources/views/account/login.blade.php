@@ -17,7 +17,7 @@
 <div class="container">
     <div class="login d-flex flex-column ">
         <form action="#" method="post">
-            <h1 class="title">商品管理システム</h1>
+            <h1 class="title">ユーザー管理システム</h1>
             <div class="inputarea">
                 <label for="exampleFormControlInput1" class="form-label" required autofocus>メールアドレス</label>
                 <input type="email" class="form-control">
