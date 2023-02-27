@@ -47,6 +47,14 @@ body{
     margin: 30px auto;
 }
 
+.account{
+    text-align: center;
+}
+a{
+    text-decoration:none;
+}
+
+
 
 /* サインアップ */
 .signup{
