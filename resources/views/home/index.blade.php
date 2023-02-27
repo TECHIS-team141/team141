@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +11,7 @@
     <link href="/css/style_sayaka.css" rel="stylesheet">
     <title>Document</title>
 
-    <!-- リアルタイムに時間を更新 -->
+    <!-- リアルタイムの時間を表示 -->
     <script type="text/javascript">
     function exec() {
       var date = new Date();
