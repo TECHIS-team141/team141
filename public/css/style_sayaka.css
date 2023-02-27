@@ -6,6 +6,7 @@
 .slider {/*横幅94%で左右に余白を持たせて中央寄せ*/
    width:94%;
     margin:0 auto;
+    max-width: 1000px;
 }
 
 .slider img {
@@ -76,4 +77,9 @@
 
 body{
   background:#eee;
+}
+
+.waths-new {
+    max-width: 1000px;
+    margin: 0 auto;
 }

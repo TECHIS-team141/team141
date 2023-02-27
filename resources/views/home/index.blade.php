@@ -62,15 +62,15 @@
         <li><img src="/img/nezumi.jpg" class="rounded" alt=""></li>
     <!--/slider--></ul>
 
-    <div class="p-5">
-
-    <table class="table table-condensed">
+    <div class="p-5 waths-new">
     <p class="p-2 mb-2 bg-warning">新着一覧</p> 
+    <table class="table table-condensed">
     <tr><th>新着日</th><th>カテゴリー</th><th>本のタイトル</th></tr>
     @foreach($items as $item)
     <tr><td class="text-muted">{{$item->created_at}}</td><td class="text-muted">{{$item->type}}</td><td class="text-muted">{{$item->name}}</td></tr>
     @endforeach
     </table>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
