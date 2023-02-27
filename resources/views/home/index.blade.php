@@ -11,10 +11,43 @@
     <link href="/css/style_sayaka.css" rel="stylesheet">
     <title>Document</title>
 
+    <!-- リアルタイムに時間を更新 -->
+    <script type="text/javascript">
+    function exec() {
+      var date = new Date();
+
+      var year_str = date.getFullYear();
+      var month_str = date.getMonth();
+      var day_str = date.getDate();
+      var hour_str = date.getHours();
+      var minute_str = date.getMinutes();
+      var second_str = date.getSeconds();
+
+      month_str = ('0' + month_str).slice(-2);
+      day_str = ('0' + day_str).slice(-2);
+      hour_str = ('0' + hour_str).slice(-2);
+      minute_str = ('0' + minute_str).slice(-2);
+      second_str = ('0' + second_str).slice(-2);
+
+      format_str = 'YYYY-MM-DD hh:mm:ss';
+      format_str = format_str.replace(/YYYY/g, year_str);
+      format_str = format_str.replace(/MM/g, month_str);
+      format_str = format_str.replace(/DD/g, day_str);
+      format_str = format_str.replace(/hh/g, hour_str);
+      format_str = format_str.replace(/mm/g, minute_str);
+      format_str = format_str.replace(/ss/g, second_str);
+
+      target = document.getElementById("timeframe");
+      target.innerHTML = format_str;
+    }
+     </script>
+
 </head>
 <body>
     @include('parts.nav')
-    <h1>team141</h1>
+    <div class="text-muted" style="padding: 10px 20px 5px 10px">現在の時刻:<span id="timeframe"></span></div>
+    <a href="#" onclick="exec();" class="text-muted" style="padding-left: 10px">時刻表示</a>
+    <h1 class="text-muted text-center">team141</h1>
     <p class="text-muted text-center">"user_id"さんようこそ！！</p>
 
     <ul class="slider">
@@ -34,11 +67,11 @@
     <table class="table table-condensed">
     <p class="bg-warning">新着一覧</p> 
     <tr><th>新着日</th><th>カテゴリー</th><th>本のタイトル</th></tr>
-    <tr><td>created_at</td><td>type</td><td>name</td></tr>
-    <tr><td>created_at</td><td>type</td><td>name</td></tr>
-    <tr><td>created_at</td><td>type</td><td>name</td></tr>
-    <tr><td>created_at</td><td>type</td><td>name</td></tr>
-    <tr><td>created_at</td><td>type</td><td>name</td></tr>
+    <tr><td class="text-muted">created_at</td><td class="text-muted">type</td><td class="text-muted">name</td></tr>
+    <tr><td class="text-muted">created_at</td><td class="text-muted">type</td><td class="text-muted">name</td></tr>
+    <tr><td class="text-muted">created_at</td><td class="text-muted">type</td><td class="text-muted">name</td></tr>
+    <tr><td class="text-muted">created_at</td><td class="text-muted">type</td><td class="text-muted">name</td></tr>
+    <tr><td class="text-muted">created_at</td><td class="text-muted">type</td><td class="text-muted">name</td></tr>
     </table>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
