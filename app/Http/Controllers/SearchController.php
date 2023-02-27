@@ -46,7 +46,7 @@ class SearchController extends Controller
 
         //Itemモデルから登録順にデータを取得してsearch.indexのブレードファイルに表示。blade上では$itemsと記載することでデータを取得。
 
-           /**
+        /**
         * アイテム詳細
         *
         * @param Request $request

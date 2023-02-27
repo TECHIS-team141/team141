@@ -25,7 +25,23 @@
             </ul>
             <ul class="list-group list-group-horizontal-sm">
             <li class="list-group-item w-25 p-3">種別</li>
-            <li class="list-group-item w-50 p-3">{{ $items->type }}</li>
+            <li class="list-group-item w-50 p-3">@switch ($item->type) 
+                        @case(1)
+                            漫画
+                            @break;
+                        @case(2)
+                            小説
+                            @break;
+                        @case(3)
+                            スポーツ
+                            @break;
+                        @case(4)
+                            料理
+                            @break;
+                        @case(5)
+                            学習
+                            @break;
+                    @endswitch</li>
             </ul>
             <ul class="list-group list-group-horizontal-sm">
             <li class="list-group-item w-25 p-3">登録日時</li>

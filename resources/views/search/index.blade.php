@@ -31,8 +31,8 @@
             <thead>
                 <th scope="col">ID</th>
                 <th scope="col">ユーザーID</th>
-                <th scope="col">名前</th>
-                <th scope="col">種別</th>
+                <th scope="col">本のタイトル</th>
+                <th scope="col">カテゴリ</th>
                 <th scope="col">更新日時</th>
                 <th scope="col">詳細</th>
             </thead>
@@ -52,7 +52,25 @@
                         <div>{{ $item->name }}</div>
                     </td>
                     <td class="table-text">
-                        <div>{{ $item->type }}</div>
+                        <div>
+                    @switch ($item->type) 
+                        @case(1)
+                            漫画
+                            @break;
+                        @case(2)
+                            小説
+                            @break;
+                        @case(3)
+                            スポーツ
+                            @break;
+                        @case(4)
+                            料理
+                            @break;
+                        @case(5)
+                            学習
+                            @break;
+                    @endswitch
+</div>
                     </td>
                     <td class="table-text">
                         <div>{{ $item->created_at }}</div>
