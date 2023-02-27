@@ -56,7 +56,8 @@ class AccountController extends Controller
             $request->session()->regenerate();
             $msg = 'ログイン成功';
 
-            return view('account.home', ['msg' => $msg]);
+            return view('home', ['msg' => $msg]);
+            // return view('account.home', ['msg' => $msg]);
         }
         return back()->withErrors([
             'Login_Error' => 'メールアドレス又はパスワードが間違っています',
