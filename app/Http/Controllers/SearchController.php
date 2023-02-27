@@ -54,7 +54,9 @@ class SearchController extends Controller
         */
         public function detail(Request $request)
         {
-            $items = Item::orderBy('created_at', 'asc')->get();
+            $id = $_GET['id'];
+            $items = Item::where('id', '=', $id)->get();
+            //dd($items,$_GET['id']);
             return view('search.detail', [
                 'items' => $items,
             ]);

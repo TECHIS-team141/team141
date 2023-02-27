@@ -1,7 +1,7 @@
 @extends('layouts.app')
  
 @section('content')
- 
+
 <div class="btn-top">
     <!-- 検索フォーム-->
     <div class="search-btn">
@@ -30,10 +30,10 @@
             <!-- テーブルヘッダ -->
             <thead>
                 <th scope="col">ID</th>
-                <th scope="col">ユーザーID</th>
                 <th scope="col">本のタイトル</th>
                 <th scope="col">カテゴリ</th>
                 <th scope="col">更新日時</th>
+                <th scope="col">在庫</th>
                 <th scope="col">詳細</th>
             </thead>
  
@@ -44,9 +44,6 @@
                     <!-- タスク名 -->
                     <td class="table-text">
                         <div>{{ $item->id }}</div>
-                    </td>
-                    <td class="table-text">
-                        <div>{{ $item->user_id }}</div>
                     </td>
                     <td class="table-text">
                         <div>{{ $item->name }}</div>
@@ -74,6 +71,15 @@
                     </td>
                     <td class="table-text">
                         <div>{{ $item->created_at }}</div>
+                    </td>
+                    <td class="table-text">
+                        <div>
+                        @if($item->status == 0)
+                        無
+                        @else
+                        有
+                        @endif    
+                    </div>
                     </td>
                     <td class="table-text">
                     <a href="detail?id={{ $item->id }}">詳細情報</a>

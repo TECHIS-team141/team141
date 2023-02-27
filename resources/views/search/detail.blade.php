@@ -10,18 +10,19 @@
 
     <!-- 商品詳細情報-->
     <div class="item-detail">
-        @if(isset($item))
+        @if(isset($items))
+        @foreach($items as $item)
             <ul class="list-group list-group-horizontal">
             <li class="list-group-item w-25 p-3">ID</li>
-            <li class="list-group-item w-50 p-3">{{ $items->id }}</li>
+            <li class="list-group-item w-50 p-3">{{ $item->id }}</li>
             </ul>
             <ul class="list-group list-group-horizontal-sm">
             <li class="list-group-item w-25 p-3">ユーザーID</li>
-            <li class="list-group-item w-50 p-3">{{ $items->user_id }}</li>
+            <li class="list-group-item w-50 p-3">{{ $item->user_id }}</li>
             </ul>
             <ul class="list-group list-group-horizontal-sm">
             <li class="list-group-item w-25 p-3">名前</li>
-            <li class="list-group-item w-50 p-3">{{ $items->name }}</li>
+            <li class="list-group-item w-50 p-3">{{ $item->name }}</li>
             </ul>
             <ul class="list-group list-group-horizontal-sm">
             <li class="list-group-item w-25 p-3">種別</li>
@@ -45,16 +46,17 @@
             </ul>
             <ul class="list-group list-group-horizontal-sm">
             <li class="list-group-item w-25 p-3">登録日時</li>
-            <li class="list-group-item w-50 p-3">{{ $items->created_at }}</li>
+            <li class="list-group-item w-50 p-3">{{ $item->created_at }}</li>
             </ul>
             <ul class="list-group list-group-horizontal-sm">
             <li class="list-group-item w-25 p-3">更新日時</li>
-            <li class="list-group-item w-50 p-3">{{ $items->updated_at }}</li>
+            <li class="list-group-item w-50 p-3">{{ $item->updated_at }}</li>
             </ul>
             <ul class="list-group list-group-horizontal-sm">
             <li class="list-group-item w-25 p-3">詳細</li>
-            <li class="list-group-item w-50 p-3">{{ $items->detail }}</li>
+            <li class="list-group-item w-50 p-3">{{ $item->detail }}</li>
             </ul>
+            @endforeach
             @endif
     </div>
 </div>
