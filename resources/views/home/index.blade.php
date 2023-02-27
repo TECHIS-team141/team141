@@ -65,13 +65,11 @@
     <div class="p-5">
 
     <table class="table table-condensed">
-    <p class="bg-warning">新着一覧</p> 
+    <p class="p-2 mb-2 bg-warning">新着一覧</p> 
     <tr><th>新着日</th><th>カテゴリー</th><th>本のタイトル</th></tr>
-    <tr><td class="text-muted">created_at</td><td class="text-muted">type</td><td class="text-muted">name</td></tr>
-    <tr><td class="text-muted">created_at</td><td class="text-muted">type</td><td class="text-muted">name</td></tr>
-    <tr><td class="text-muted">created_at</td><td class="text-muted">type</td><td class="text-muted">name</td></tr>
-    <tr><td class="text-muted">created_at</td><td class="text-muted">type</td><td class="text-muted">name</td></tr>
-    <tr><td class="text-muted">created_at</td><td class="text-muted">type</td><td class="text-muted">name</td></tr>
+    @foreach($items as $item)
+    <tr><td class="text-muted">{{$item->created_at}}</td><td class="text-muted">{{$item->type}}</td><td class="text-muted">{{$item->name}}</td></tr>
+    @endforeach
     </table>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>

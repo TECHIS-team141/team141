@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Item;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('home.index'); //blade.phpは省略してかく
+        $items = Item::where('status', 'active')->orderByDesc('created_at')->limit(5)->get();
+        return view('home.index', ['items' => $items]); //blade.phpは省略してかく
     }
     //
 }
