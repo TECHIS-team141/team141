@@ -30,7 +30,7 @@ class AccountController extends Controller
 
         $user = new User;
         $user->name = $request->name;
-        $user->role = 1;
+        $user->role = 0;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->save();
@@ -52,12 +52,19 @@ class AccountController extends Controller
             'password' => ['required'],
         ]);
 
+        $user = User::all()->where('email', $request->email)->first();
+
+        if($user===null)
+        {
+            return back()->withErrors([
+                'Login_Error' => '存在しないユーザーです',
+            ]);
+        }
+
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            $msg = 'ログイン成功';
 
-            return view('home', ['msg' => $msg]);
-            // return view('account.home', ['msg' => $msg]);
+            return redirect('/home');
         }
         return back()->withErrors([
             'Login_Error' => 'メールアドレス又はパスワードが間違っています',
