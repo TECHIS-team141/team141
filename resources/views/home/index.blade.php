@@ -13,11 +13,12 @@
 
     <!-- リアルタイムの時間を表示 -->
     <script type="text/javascript">
-    function exec() {
+
+    document.addEventListener('DOMContentLoaded',function(){
       var date = new Date();
 
       var year_str = date.getFullYear();
-      var month_str = date.getMonth();
+      var month_str = date.getMonth()+1;
       var day_str = date.getDate();
       var hour_str = date.getHours();
       var minute_str = date.getMinutes();
@@ -39,14 +40,13 @@
 
       target = document.getElementById("timeframe");
       target.innerHTML = format_str;
-    }
-     </script>
+    });
+    </script>
 
 </head>
 <body>
     @include('parts.nav')
-    <div class="text-muted" style="padding: 10px 20px 5px 10px">現在の時刻:<span id="timeframe"></span></div>
-    <a href="#" onclick="exec();" class="text-muted" style="padding-left: 10px">時刻表示</a>
+    <div class="text-muted" style="padding: 10px 20px 5px 10px">最新の更新日時:<span id="timeframe"></span></div>
     <h1 class="text-muted text-center">team141</h1>
     <p class="text-muted text-center">"user_id"さんようこそ！！</p>
 
