@@ -14,15 +14,17 @@ use App\Http\Controllers\UserslistController;
 |
 */
 
+//ログイン無しでアクセスできる
 Route::group(['middleware'=>['guest']],function(){
 Route::get('/account/signup',[App\Http\Controllers\AccountController::class,'showSignup'])->name('showSignup');
 Route::post('/account/usercreate',[App\Http\Controllers\AccountController::class,'usercreate'])->name('userCreate');
 Route::post('/account/userlogin',[App\Http\Controllers\AccountController::class,'userlogin'])->name('userlogin');
-
 });
 
+//ログインしないとアクセス出来ない
 Route::group(['middleware'=>['auth']],function(){
     Route::get('/home', [App\Http\Controllers\AccountController::class, 'accountHome'])->name('accountHome');
+
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 // Route::get('/search', [App\Http\Controllers\SearchController::class, 'index'])->name('item.search');
 // Route::get('/detail', [App\Http\Controllers\SearchController::class, 'detail'])->name('item.detail');

@@ -9,11 +9,13 @@ use App\Models\User;
 
 class AccountController extends Controller
 {
+    //アカウント登録画面
     public function showSignup()
     {
         return view('account.signup');
     }
 
+    //アカウント作成処理
     public function userCreate(Request $request)
     {
         // dd($request->all());
