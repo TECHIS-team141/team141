@@ -12,17 +12,17 @@
     <form action = "{{ route('userslistsupdate' ,['id' =>$userslists->id])}}" method = "POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group center-block">
-            <label for="name"></label>
+            <label for="name">名前</label>
             <input type="text" name="name" class="form-control align-self-center" value="{{ $userslists->name }}">
         </div>
         <div class="form-group">
-            <label for="email"></label>
+            <label for="email">メールアドレス</label>
             <input type="email" name="email" class="form-control col align-self-center" value="{{ $userslists->email }}">
         </div>
-        <div class="form-group">
-            <label for="role"></label>
-            <input type="text" name="role" class="form-control col align-self-center" value="{{ $userslists->role }}">
-        </div>
+        <p class="form-group">権限<br>
+            <input type="radio" name="role" value="{{ $userslists->role }}">管理者
+            <input type="radio" name="role" value="{{ $userslists->role }}">一般
+        </p>
             <input type="submit" class="btn border border-dark" value="編集">
     </form>
     <form method="POST" action="{{route('userslistsdelete',['id' =>$userslists->id])}}">

@@ -21,37 +21,36 @@ class UserslistController extends Controller
         $users = User::paginate(10);
         return view('userslists.index',['users' => $users]);
     }
-    public function initialize()
-    {
-        $users = User::all();
-        $users = User::sortable()->paginate(10);
-        return view('userslists.index', ['forms' => $forms]);
-        return view('list', ['users' => $users, 'sort' => $sort]);
-    }
+    // public function initialize()
+    // {
+    //     $users = User::all();
+    //     $users = User::sortable()->paginate(10);
+    //     return view('userslists.index');
+    // }
 
     /**
      * ユーザー登録画面
      * 
      * 
      */
-    public function form()
-    {
-        return view('userslists.form');
-    }
+    // public function form()
+    // {
+    //     return view('userslists.form');
+    // }
 
     /**
      * ユーザーデータ登録
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
-    {
-        $this->validate($request,['name' => 'required|max:255','email'=>'required', ]);
+    // public function store(Request $request)
+    // {
+    //     $this->validate($request,['name' => 'required|max:255','email'=>'required', ]);
 
-        // ユーザーデータ作成
-        User::create(['id' => 0, 'name' => $request->name, 'email' =>$request->email, ]);
-        return redirect('/userslists');
-    }
+    //     // ユーザーデータ作成
+    //     User::create(['id' => 0, 'name' => $request->name, 'email' =>$request->email, ]);
+    //     return redirect('/userslists');
+    // }
 
     /**
      * ユーザー情報編集画面

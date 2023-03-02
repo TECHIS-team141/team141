@@ -12,6 +12,7 @@
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         </head>
 <body>
+    {{-- @include('parts.nav') --}}
     <h4>ユーザー一覧</h4>
 </body>
 </html>
@@ -26,13 +27,15 @@
                 <th>@sortablelink('role', '権限')</th>
                 <th>&nbsp;</th>
             </thead>
-        @foreach ($users as $user)
+            @foreach ($users as $user)
             <tr>
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->role }}</td>
+                @can('admin-higher')
                 <td><a href="{{ route('userslistsedit', ['id' => $user->id]) }}" class="btn btn-primary">編集</a></td>
+                @endcan
                 <!-- <td>
                     <form action="{{ route('userslistsdelete', $user->id) }}" method="POST">
                         @csrf
@@ -41,5 +44,7 @@
                     </form>
                 </td> -->
             </tr>
-        @endforeach
-    </table>
+            @endforeach
+        </table>
+    </div>
+</div>
