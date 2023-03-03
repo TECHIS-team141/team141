@@ -9,11 +9,13 @@ use App\Models\User;
 
 class AccountController extends Controller
 {
+    //アカウント登録画面
     public function showSignup()
     {
         return view('account.signup');
     }
 
+    //アカウント作成処理
     public function userCreate(Request $request)
     {
         // dd($request->all());
@@ -30,7 +32,7 @@ class AccountController extends Controller
 
         $user = new User;
         $user->name = $request->name;
-        $user->role = 1;
+        $user->role = 0;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->save();
@@ -52,11 +54,19 @@ class AccountController extends Controller
             'password' => ['required'],
         ]);
 
+        $user = User::all()->where('email', $request->email)->first();
+
+        if($user===null)
+        {
+            return back()->withErrors([
+                'Login_Error' => '存在しないユーザーです',
+            ]);
+        }
+
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            $msg = 'ログイン成功';
 
-            return view('account.home', ['msg' => $msg]);
+            return redirect('/home');
         }
         return back()->withErrors([
             'Login_Error' => 'メールアドレス又はパスワードが間違っています',

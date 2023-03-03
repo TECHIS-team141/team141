@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <p>{{ $msg }}</p>
+   
     <br><br>
 
     <a href="/logout">ログアウト</a>
