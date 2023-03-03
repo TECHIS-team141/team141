@@ -8,10 +8,14 @@
         <button class="btn btn-secondary" type="button" id="button-addon2"><a href="search">商品一覧</a></button>
     </div>
 
-    <!-- 商品詳細情報-->
+    <!-- 商品詳細情報 -->
     <div class="item-detail">
         @if(isset($items))
         @foreach($items as $item)
+        <ul class="list-group list-group-horizontal">
+            <li class="list-group-item w-25 p-3 bg-light">項目</li>
+            <li class="list-group-item w-50 p-3 bg-light">詳細情報</li>
+            </ul>
             <ul class="list-group list-group-horizontal">
             <li class="list-group-item w-25 p-3">ID</li>
             <li class="list-group-item w-50 p-3">{{ $item->id }}</li>
@@ -59,21 +63,6 @@
             @endforeach
             @endif
     </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
