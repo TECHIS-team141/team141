@@ -10,18 +10,27 @@
 
 <body class="signup text-center">
   <br>
-  <h1>商品登録</h1>
+  <h1>書籍登録</h1>
   <br>
   <form action="/item/register" method="post">
     @csrf
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif    
     <div class="form-group">
-      <label for="itemName">商品名</label>
-      <input type="text" name="name" class="form-control">
+      <label for="itemName">本のタイトル</label>
+      <input type="text" name="name" class="form-control" required>
     </div>
     <br>
     <div class="form-group">
-      <label for="kind">種別</label>
-      <select name="type" class="form-control">
+      <label for="kind">カテゴリー</label>
+      <select name="type" class="form-control" required>
         <option value="" selected disablad></option>
         @foreach(\App\Models\Item::TYPES as $key => $value)
         <option value="{{$key}}">{{$value}}</option>
@@ -31,9 +40,11 @@
     <br>
     <div class="form-group">
       <label for="textArea">詳細</label>
-      <textarea name="detail" class="form-control" rows="5"></textarea>
+      <textarea name="detail" class="form-control" rows="5" required></textarea>
     </div>
     <br>
     <button type="submit" class="btn btn-primary">登録</button>
   </form>
+  <br>
+  <a href={{url('item')}} class="btn btn-primary">一覧に戻る</a>
 </body>

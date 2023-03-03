@@ -10,13 +10,13 @@
 
 <body> 
   <br>
-  <h1 class="text-center">商品編集</h1>
+  <h1 class="text-center">書籍編集</h1>
   <h3 class="text-center">ID : {{$item->id}}</h3>
   <br>
   <form class="text-center" action="/item/update" method="post">
     @csrf
     <div class="form-group">
-      <label for="itemName">商品名</label>
+      <label for="itemName">本のタイトル</label>
       <input type="text" name="name" class="form-control" value="{{$item->name}}">
     </div>
     <br>
@@ -30,7 +30,7 @@
     </div>
     <br>
     <div class="form-group">
-      <label for="kind">種別</label>
+      <label for="kind">カテゴリー</label>
       <select name="type" class="form-control">
       @foreach(\App\Models\Item::TYPES as $key => $value)
         <option value="{{$key}}">{{$value}}</option>
@@ -44,6 +44,16 @@
     </div>
     <br>
     <button type="submit" class="btn btn-primary">更新</button>
-    <a href="item/delete/{{$item->id}}"><button type="button btn-primary" class="btn btn-secondary">削除</button></a>
+    <input type="hidden" name="id" value={{$item->id}}>
   </form>
+  <br>
+  <form class="text-center" action="/item/delete" method="get">
+    @csrf
+    <button type="submit" class="btn btn-secondary" onclick='return confirm("削除しますか？");'>削除</button>
+    <input type="hidden" name="id" value={{$item->id}}>
+  </form>
+  <br>
+  <div class="text-end">
+    <a href={{url('item')}} class="btn btn-primary">一覧に戻る</a>
+  </div>
 </body>

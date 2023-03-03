@@ -15,6 +15,7 @@ class Item extends Model
         'status',
         'type',
         'detail',
+        'updated_at',
     ];
 
     const TYPES = [
@@ -26,8 +27,8 @@ class Item extends Model
     ];
 
     const STOCK = [
-        '1' => '有',
-        '2' => '無'
+        '0' => '無',
+        '1' => '有'
     ];
     
 }

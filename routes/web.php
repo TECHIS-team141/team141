@@ -43,7 +43,7 @@ Route::get('/item/edit/{id}',[App\Http\Controllers\ItemController::class,'edit']
 // データを編集して会員一覧画面へ
 Route::post('/item/update',[App\Http\Controllers\ItemController::class,'update']);
 // 削除して会員一覧画面へ
-Route::get('/item/delete/{id}',[App\Http\Controllers\ItemController::class,'delete']);
+Route::get('/item/delete',[App\Http\Controllers\ItemController::class,'delete']);
 
 
 

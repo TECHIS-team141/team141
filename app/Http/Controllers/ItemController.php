@@ -34,6 +34,7 @@ class ItemController extends Controller
         $items->save();
 
         return redirect('/item');
+
     }
 
     // 編集画面の表示
@@ -48,9 +49,8 @@ class ItemController extends Controller
 
     // 編集を保存して一覧画面へ
     public function update(Request $request){
-
         $items = Item::where('id','=',$request->id)->first();
-        dd($items);
+    
         $items->name = $request->name;
         $items->user_id = 1;
         $items->status = $request->status;
