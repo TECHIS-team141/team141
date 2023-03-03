@@ -37,6 +37,7 @@ Route::post('update/{id}', [UserslistController::class, 'update'])->name('usersl
 // 商品一覧画面の表示
 Route::get('/item',[App\Http\Controllers\ItemController::class,'main']);
 // 商品登録画面の表示
+
 Route::get('/item/create',[App\Http\Controllers\ItemController::class,'create']);
 // 商品登録を保存して商品一覧画面へ遷移
 Route::post('/item/register',[App\Http\Controllers\ItemController::class,'register']);

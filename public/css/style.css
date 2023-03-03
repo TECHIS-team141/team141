@@ -1,0 +1,42 @@
+.search-btn{
+    width: 30%;
+    margin-left: 20px;
+}
+
+.register-btn{
+    margin-right: 100px;
+}
+
+.btn-top{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card{
+    margin-top: 30px;
+}
+
+.card .card-body{
+    width: 95%;
+    text-align: center;
+}
+
+.detail-content{
+    width: 80%;
+    margin-left: auto;
+    margin-right:auto;
+}
+
+.item-detail{
+    margin-top: 50px;
+}
+
+.list-btn{
+    text-align: right;
+    margin-right: 400px;
+}
+
+.list-btn a{
+    color: white;
+    text-decoration: none;
+}
