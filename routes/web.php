@@ -54,3 +54,4 @@ Route::get('/logout',[App\Http\Controllers\AccountController::class,'userlogout'
 Route::get('/', function () {
     return view('account.login');
 })->name('login');
+?>
