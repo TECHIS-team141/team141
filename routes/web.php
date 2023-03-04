@@ -23,7 +23,6 @@ Route::post('/account/userlogin',[App\Http\Controllers\AccountController::class,
 
 //ログインしないとアクセス出来ない
 // Route::group(['middleware'=>['auth']],function(){
-    Route::get('/home', [App\Http\Controllers\AccountController::class, 'accountHome'])->name('accountHome');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 Route::get('/search', [App\Http\Controllers\SearchController::class, 'index'])->name('item.search');
