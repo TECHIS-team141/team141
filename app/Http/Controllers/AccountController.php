@@ -39,21 +39,16 @@ class AccountController extends Controller
 
         return redirect('/');
     }
-
-    public function accountHome()
-    {
-        return view('account.home');
-    }
-
+    // ログイン認証
     public function userlogin(Request $request)
     {
-        // dd($request->all());
 
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
 
+        //入力されたメールアドレスが存在しない場合、「存在しないユーザーです」と表示させる
         $user = User::all()->where('email', $request->email)->first();
 
         if($user===null)
@@ -62,7 +57,9 @@ class AccountController extends Controller
                 'Login_Error' => '存在しないユーザーです',
             ]);
         }
-
+        //入力されたメールアドレス、パスワードの認証
+        //ログイン成功⇒ホーム画面へ遷移
+        //ログイン失敗⇒ログイン画面にエラー表示
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
@@ -73,6 +70,8 @@ class AccountController extends Controller
 
         ]);
     }
+    
+    //ログアウト処理
     public function userlogout(Request $request)
     {
         Auth::logout();
