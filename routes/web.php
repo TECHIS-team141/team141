@@ -22,7 +22,7 @@ Route::post('/account/userlogin',[App\Http\Controllers\AccountController::class,
 });
 
 //ログインしないとアクセス出来ない
-// Route::group(['middleware'=>['auth']],function(){
+Route::group(['middleware'=>['auth']],function(){
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 Route::get('/search', [App\Http\Controllers\SearchController::class, 'index'])->name('item.search');
@@ -47,7 +47,7 @@ Route::post('/item/update',[App\Http\Controllers\ItemController::class,'update']
 // 削除して会員一覧画面へ
 Route::get('/item/delete/{id}',[App\Http\Controllers\ItemController::class,'delete']);
 Route::get('/logout',[App\Http\Controllers\AccountController::class,'userlogout'])->name('userlogout');
-// });
+});
 
 
 
@@ -56,3 +56,4 @@ Route::get('/', function () {
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
+?>
