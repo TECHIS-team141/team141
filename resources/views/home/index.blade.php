@@ -48,7 +48,7 @@
     @include('parts.nav')
     <div class="text-muted" style="padding: 10px 20px 5px 10px">最新の更新日時:<span id="timeframe"></span></div>
     <h1 class="text-muted text-center">team141</h1>
-    <p class="text-muted text-center">"user_id"さんようこそ！！</p>
+    <p class="text-muted text-center">{{Auth::user()->name}}さんようこそ！！</p>
 
     <ul class="slider">
         <li><img src="/img/book.jpg" class="rounded" alt=""></li> <!--クラスを追加することで画像の角を丸に-->
