@@ -31,10 +31,6 @@ class AuthServiceProvider extends ServiceProvider
             return ($user->role===1);
         });
 
-        //一般ユーザー
-        Gate::define('general',function(User $user){
-            return ($user->role===0);
-        });
 
 
     }
