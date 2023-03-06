@@ -9,6 +9,7 @@
 </head>
 
 <body>
+  @include('parts.nav')
   <br>
   <h1 class="text-center">書籍一覧</h1>
   <br>
