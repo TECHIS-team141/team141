@@ -33,6 +33,7 @@ Route::get('/userslists/forms', [UserslistController::class, 'form'])->name('use
 Route::get('/userslists/edit{id}', [UserslistController::class, 'edit'])->name('userslistsedit');
 Route::post('delete/{id}', [UserslistController::class, 'delete'])->name('userslistsdelete');
 Route::post('update/{id}', [UserslistController::class, 'update'])->name('userslistsupdate');
+
 // 商品一覧画面の表示
 Route::get('/item',[App\Http\Controllers\ItemController::class,'main']);
 // 商品登録画面の表示
