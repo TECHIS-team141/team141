@@ -25,11 +25,11 @@
             <li class="list-group-item w-50 p-3">{{ $item->user_id }}</li>
             </ul>
             <ul class="list-group list-group-horizontal-sm">
-            <li class="list-group-item w-25 p-3">名前</li>
+            <li class="list-group-item w-25 p-3">本のタイトル</li>
             <li class="list-group-item w-50 p-3">{{ $item->name }}</li>
             </ul>
             <ul class="list-group list-group-horizontal-sm">
-            <li class="list-group-item w-25 p-3">種別</li>
+            <li class="list-group-item w-25 p-3">カテゴリ</li>
             <li class="list-group-item w-50 p-3">@switch ($item->type) 
                         @case(1)
                             漫画
