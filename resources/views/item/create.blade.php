@@ -10,7 +10,7 @@
 
 <body class="signup text-center">
   <br>
-  <h1>書籍登録</h1>
+  <h1>商品登録</h1>
   <br>
   <form action="/item/register" method="post">
     @csrf
