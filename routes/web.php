@@ -21,7 +21,7 @@ Route::post('/account/usercreate',[App\Http\Controllers\AccountController::class
 Route::post('/account/userlogin',[App\Http\Controllers\AccountController::class,'userlogin'])->name('userlogin');
 });
 
-//ログインしないとアクセス出来ない
+//ログインすればアクセス可
 Route::group(['middleware'=>['auth']],function(){
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
@@ -35,6 +35,7 @@ Route::group(['middleware'=>['auth']],function(){
     Route::post('update/{id}', [UserslistController::class, 'update'])->name('userslistsupdate');
 });
 
+//管理者でログインすればアクセス可
 Route::group(['middleware' => ['auth', 'can:admin']], function () {
      // 商品一覧画面の表示
      Route::get('/item',[App\Http\Controllers\ItemController::class,'main']);
