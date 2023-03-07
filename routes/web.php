@@ -28,17 +28,6 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('/search', [App\Http\Controllers\SearchController::class, 'index'])->name('item.search');
     Route::get('/detail', [App\Http\Controllers\SearchController::class, 'detail'])->name('item.detail');
 
-<<<<<<< HEAD
-Route::get('/userslists', [UserslistController::class, 'index'])->name('userslists');
-Route::get('/userslists/forms', [UserslistController::class, 'form'])->name('userslistsforms');
-Route::get('/userslists/edit{id}', [UserslistController::class, 'edit'])->name('userslistsedit');
-Route::post('delete/{id}', [UserslistController::class, 'delete'])->name('userslistsdelete');
-Route::post('update/{id}', [UserslistController::class, 'update'])->name('userslistsupdate');
-
-// 商品一覧画面の表示
-Route::get('/item',[App\Http\Controllers\ItemController::class,'main']);
-// 商品登録画面の表示
-=======
     Route::get('/userslists', [UserslistController::class, 'index'])->name('userslists');
     Route::get('/userslists/forms', [UserslistController::class, 'form'])->name('userslistsforms');
     Route::get('/userslists/edit{id}', [UserslistController::class, 'edit'])->name('userslistsedit');
@@ -60,7 +49,6 @@ Route::group(['middleware' => ['auth', 'can:admin']], function () {
      // 削除して会員一覧画面へ
      Route::get('/item/delete/{id}',[App\Http\Controllers\ItemController::class,'delete']);
 });
->>>>>>> e519eca6872fa260a219310b6dc5a25fd361cf41
 
 Route::get('/logout',[App\Http\Controllers\AccountController::class,'userlogout'])->name('userlogout');
 

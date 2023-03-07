@@ -1,44 +1,60 @@
 <!DOCTYPE html>
 <html lang="ja">
+@extends('userslists.layout')
+@section('title', 'ユーザー編集')
+@section('content')
 <head>
     <meta charset="UTF-8">
-        <title>ユーザー一覧</title>
-            <style>
-                table {border-collapse: collapse;width: 100%;}
-                th, td {border: 1px solid #ddd;padding: 8px;text-align: left;}
-                th {background-color: #f2f2f2;}
-            </style>
-<!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>編集画面</title>
 </head>
 <body>
-@include('parts.nav')
-    <h4>ユーザー一覧</h4>
-{{-- {{ $users->appends(['name' => $name, 'email' => $email])->links()  }} --}}
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <table class="table table-striped userslist-table">
-                <thead>
-                    <th>ID</th>
-                    <th>名前</th>
-                    <th>メールアドレス</th>
-                    <th>権限</th>
-                    <th>&nbsp;</th>
-                </thead>
-                @foreach ($users as $user)
-                <tr>
-                    <td>{{ $user->id }}</td>
-                    <td>{{ $user->name }}</td>
-                    <td>{{ $user->email }}</td>
-                    <td>@if($user->role ==1) 管理者 @else 利用者 @endif</td>
-                    <td><a href="{{ route('userslistsedit', ['id' => $user->id]) }}" class="btn btn-primary">編集</a></td>
-                    @can('admin-higher')
-                    @endcan
-                </tr>
-                @endforeach
-            </table>
-        </div>
-    </div>
-</body>
+@if($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<div class="container small text-center">
+    <h3 class="mt-4">編集画面</h3>
+    <h4>ユーザー編集 ID:{{ $userslists->id }}</h4>
+    <form method="post" action="{{ route('userslistsupdate' ,['id' =>$userslists->id])}}" enctype="multipart/form-data">
+    @csrf
+        <div class="form-group center-block">
+            <label for="name">名前</label>
+            <input type="text" name="name" class="form-control align-self-center" value="{{ old('name', $userslists->name) }}">
+        </div>
+        <div class="form-group">
+            <label for="email">メールアドレス</label>
+            <input type="email" name="email" class="form-control col align-self-center" value="{{ old('email', $userslists->email) }}">
+        </div>
+        <div class="form-group">
+            <label for="password">パスワード</label>
+            <input type="password" name="password" class="form-control col align-self-center" value="{{ old('password', $userslists->password) }}">
+        </div>
+        <div class="form-group">
+            <label for="confirm_password">パスワード確認用</label>
+            <input type="password" name="confirm_password" class="form-control col align-self-center" value="{{ old('confirm_password', $userslists->password) }}">
+        </div>
+        <p class="form-group">権限<br>
+            <input type="radio" name="role" value="1" @if($userslists->role ==1) checked @endif>管理者
+            <input type="radio" name="role" value="0" @if($userslists->role ==0) checked @endif>一般
+        </p>
+            <input type="submit" class="btn border border-dark bg-teal-700 float-right" value="編集">
+    </form>
+    <form method="post" action="{{route('userslistsdelete',['id' =>$userslists->id])}}">
+    @csrf
+        <button type="submit" class="btn border border-dark center-block" onClick="return confirm('削除してよろしいですか。');">削除</button>
+    </form>
+</div>
+    <button type="button" onclick="location.href='{{ route('userslists') }}'" class="btn btn-primary">戻る</button>
+</body>
 </html>
+@endsection
