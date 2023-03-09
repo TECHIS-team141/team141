@@ -21,8 +21,8 @@ Route::post('/account/usercreate',[App\Http\Controllers\AccountController::class
 Route::post('/account/userlogin',[App\Http\Controllers\AccountController::class,'userlogin'])->name('userlogin');
 });
 
-//ログインしないとアクセス出来ない
-Route::group(['middleware'=>['auth']],function(){
+// //ログインしないとアクセス出来ない
+// Route::group(['middleware'=>['auth']],function(){
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
     Route::get('/search', [App\Http\Controllers\SearchController::class, 'index'])->name('item.search');
@@ -33,7 +33,7 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('/userslists/edit{id}', [UserslistController::class, 'edit'])->name('userslistsedit');
     Route::post('delete/{id}', [UserslistController::class, 'delete'])->name('userslistsdelete');
     Route::post('update/{id}', [UserslistController::class, 'update'])->name('userslistsupdate');
-});
+// });
 
 Route::group(['middleware' => ['auth', 'can:admin']], function () {
      // 商品一覧画面の表示

@@ -2,6 +2,8 @@
  
 @section('content')
 
+@include('parts.nav')
+
 <div class="detail-content">
     <!-- 商品登録遷移ボタン-->
     <div class="list-btn">
@@ -19,10 +21,6 @@
             <ul class="list-group list-group-horizontal">
             <li class="list-group-item w-25 p-3">ID</li>
             <li class="list-group-item w-50 p-3">{{ $item->id }}</li>
-            </ul>
-            <ul class="list-group list-group-horizontal-sm">
-            <li class="list-group-item w-25 p-3">ユーザーID</li>
-            <li class="list-group-item w-50 p-3">{{ $item->user_id }}</li>
             </ul>
             <ul class="list-group list-group-horizontal-sm">
             <li class="list-group-item w-25 p-3">本のタイトル</li>
@@ -47,6 +45,16 @@
                             学習
                             @break;
                     @endswitch</li>
+            </ul>
+            <ul class="list-group list-group-horizontal-sm">
+            <li class="list-group-item w-25 p-3">在庫</li>
+            <li class="list-group-item w-50 p-3">
+            @if($item->status == 0)
+                        無
+                        @else
+                        有
+                        @endif    
+                    </li>
             </ul>
             <ul class="list-group list-group-horizontal-sm">
             <li class="list-group-item w-25 p-3">登録日時</li>
