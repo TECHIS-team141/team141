@@ -90,10 +90,6 @@ class UserslistController extends Controller
         $inputs = $request->validate([
             'name' => 'required',
             'email' => 'required',
-            'password' => 'required',
-            'confirm_password' => [
-                'required', 'same:password',
-            ],
         ]);
         
         $userdata->update([
@@ -128,16 +124,4 @@ class UserslistController extends Controller
         \Session::flash('err_msg', '削除しました。');
         return redirect(route('userslists'));
     }
-
-    public function message()
-    {
-        return [
-            'name.required' => '名前は必須です。',
-            'email.required' => 'メールアドレスは必須です。',
-            'password.required' => 'パスワードは必須です。',
-            'confirm_password.required' => '確認用パスワードは必須です。',
-            'confirm_password.same' => 'パスワードと確認用パスワードが一致しません。',
-        ];
-    }
-
 }
