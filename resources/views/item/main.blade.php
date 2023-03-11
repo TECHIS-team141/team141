@@ -9,11 +9,12 @@
 </head>
 
 <body>
+  @include('parts.nav')
   <br>
-  <h1 class="text-center">書籍一覧</h1>
+  <h1 class="text-center">商品一覧</h1>
   <br>
   <div class="text-end">
-    <a href={{url('item/create')}} class="btn btn-primary">書籍登録</a>
+    <a href={{url('item/create')}} class="btn btn-primary">商品登録</a>
   </div>
   <br>
   <br>
@@ -21,10 +22,9 @@
     <thead>
       <tr>
         <th class="text-center">ID</th>
-        <th class="text-center">ユーザーID</th>
-        <th class="text-center">名前</th>
+        <th class="text-center">本のタイトル</th>
         <th class="text-center">在庫</th>
-        <th class="text-center">種別</th>
+        <th class="text-center">カテゴリー</th>
         <th class="text-center">更新日時</th>
         <th></th>
       </tr>
@@ -33,7 +33,6 @@
     <tbody>
       <tr>
         <td class="text-end">{{$item->id}}</td>
-        <td class="text-end">{{$item->user_id}}</td>
         <td>{{$item->name}}</td>
         <td class="text-center">{{\App\Models\Item::STOCK[$item->status]}}</td>
         <td class="text-center">{{\App\Models\Item::TYPES[$item->type]}}</td>

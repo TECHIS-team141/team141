@@ -10,7 +10,7 @@
 
 <body> 
   <br>
-  <h1 class="text-center">書籍編集</h1>
+  <h1 class="text-center">商品編集</h1>
   <h3 class="text-center">ID : {{$item->id}}</h3>
   <br>
   <form class="text-center" action="/item/update" method="post">

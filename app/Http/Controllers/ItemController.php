@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Item;
+use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
 {
@@ -27,7 +28,7 @@ class ItemController extends Controller
 
         $items = new Item();
         $items->name = $request->name;
-        $items->user_id = 1;
+        $items->user_id = Auth::id();
         $items->status = 1;
         $items->type = $request->type;
         $items->detail = $request->detail;
