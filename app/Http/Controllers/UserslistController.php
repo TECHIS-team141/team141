@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Pagination\Paginator;
 use App\Models\User;
 
 class UserslistController extends Controller
@@ -18,7 +18,7 @@ class UserslistController extends Controller
     {
         $users = User::orderBy('created_at', 'asc')->get();
         $sort = $request->sort;
-        $users = User::paginate(5);
+        $users = User::paginate(10);
         return view('userslists.index',['users' => $users]);
     }
     // public function initialize()
@@ -33,37 +33,37 @@ class UserslistController extends Controller
      * 
      * 
      */
-    public function create()
-    {
-        return view('userslists.create');
-    }
+    // public function create()
+    // {
+    //     return view('userslists.create');
+    // }
 
     /**
      * ユーザーデータ登録
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
-    {
-        $inputs = $request->validate([
-        'name' => 'require',
-        'email' => 'requier',
-        'role' => 'require',
-    ]);
-        $user = new User();
-        $user->name = $inputs['name'];
-        $user->email = $inputs['email'];
-        $user->role = $request->role;
-        $user->save();
-        return back();
-    }
+    // public function store(Request $request)
+    // {
+    //     $inputs = $request->validate([
+    //     'name' => 'require',
+    //     'email' => 'requier',
+    //     'role' => 'require',
+    // ]);
+    //     $user = new User();
+    //     $user->name = $inputs['name'];
+    //     $user->email = $inputs['email'];
+    //     $user->role = $request->role;
+    //     $user->save();
+    //     return back();
+    // }
 
     /**
      * ユーザー情報編集画面
      * @param int $id
      * @return view
      */
-    public function edit($id)
+    public function edit(Request $request,$id)
     {
         $userslists = User::find($id);
         if (is_null($userslists)) {
@@ -73,6 +73,7 @@ class UserslistController extends Controller
         return view('userslists.edit',[
             'userslists' => $userslists,
         ]);
+        
     }
 
     /**
@@ -85,6 +86,15 @@ class UserslistController extends Controller
     public function update(Request $request,$id)
     {
         $userdata = User::find($id);
+
+        $inputs = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'confirm_password' => [
+                'required', 'same:password',
+            ],
+        ]);
         
         $userdata->update([
             'name' => $request->name,
@@ -117,6 +127,17 @@ class UserslistController extends Controller
         }
         \Session::flash('err_msg', '削除しました。');
         return redirect(route('userslists'));
+    }
+
+    public function message()
+    {
+        return [
+            'name.required' => '名前は必須です。',
+            'email.required' => 'メールアドレスは必須です。',
+            'password.required' => 'パスワードは必須です。',
+            'confirm_password.required' => '確認用パスワードは必須です。',
+            'confirm_password.same' => 'パスワードと確認用パスワードが一致しません。',
+        ];
     }
 
 }
