@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="ja">
 <head>
-@include('parts.nav')
+    @include('parts.nav')
 </head>
 <body>
     <div class="container">

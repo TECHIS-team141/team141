@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="ja">
 @extends('userslists.layout')
 @section('title', 'ユーザー一覧')
 @section('content')
