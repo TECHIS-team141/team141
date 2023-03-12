@@ -17,7 +17,7 @@
     @csrf
     <div class="form-group">
       <label for="itemName">本のタイトル</label>
-      <input type="text" name="name" class="form-control" value="{{$item->name}}">
+      <input type="text" name="name" class="form-control" value="{{$item->name}}" required>
     </div>
     <br>
     <div class="form-group">
@@ -40,7 +40,7 @@
     <br>
     <div class="form-group">
       <label for="textArea">詳細</label>
-      <textarea name="detail" class="form-control" rows="5">{{$item->detail}}</textarea>
+      <textarea name="detail" class="form-control" rows="5" required>{{$item->detail}}</textarea>
     </div>
     <br>
     <button type="submit" class="btn btn-primary">更新</button>
