@@ -1,6 +1,8 @@
-@extends('layouts.app')
+<!-- @extends('layouts.app') -->
  
 @section('content')
+
+@include('parts.nav')
 
 <div class="btn-top">
     <!-- 検索フォーム-->
@@ -15,7 +17,7 @@
 
     <!-- 商品登録遷移ボタン-->
     <div class="register-btn">
-        <button class="btn btn-secondary" type="button" id="button-addon2">商品登録</button>
+        <button class="btn btn-secondary" type="button" id="button-addon2"><a href="item/create">商品登録</a></button>
     </div>
 </div>
 
