@@ -77,7 +77,7 @@
             </ul>
             <ul class="list-group list-group-horizontal-sm">
             <li class="list-group-item w-25 p-3">詳細</li>
-            <li class="list-group-item w-50 p-3">{{ $item->detail }}</li>
+            <li class="list-group-item w-50 p-3"> {{ $item->detail }} </li>
             </ul>
             @endforeach
             @endif
