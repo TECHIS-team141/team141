@@ -59,10 +59,6 @@
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
-<<<<<<< HEAD
-=======
- 
->>>>>>> e56f615b41fa0162bff7e7c3723b9985dfaae274
                         </li>
                         @endguest
                     </ul>
