@@ -1,6 +1,16 @@
-<!-- @extends('layouts.app') -->
- 
-@section('content')
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link href="/css/style.css" rel="stylesheet">
+    <title>Document</title>
+</head>
 
 @include('parts.nav')
 
@@ -10,18 +20,19 @@
     <form action="{{url('/search')}}" method="get">
         <div class="input-group">
             <input type="text" name="keyword" value="@if (isset($keyword)) {{ $keyword }} @endif" class="form-control" placeholder="キーワードを入力">
-        </div>
+        
         <input type="submit" value="検索" class="btn btn-info">
+        </div>
     </form>
     </div>
 
     <!-- 商品登録遷移ボタン-->
     <div class="register-btn">
-        <button class="btn btn-secondary" type="button" id="button-addon2"><a href="item/create">商品登録</a></button>
+        <button class="btn btn-secondary" type="button" id="button-addon2"><a href="item/create">商品登録</button>
     </div>
 </div>
 
-<!-- タスク一覧表示 -->
+<!-- 一覧表示 -->
 <div class="card">
   <h5 class="card-header">
         商品一覧
@@ -96,4 +107,3 @@
         </table>
     </div>
 </div>
-@endsection
