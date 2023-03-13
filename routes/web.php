@@ -22,7 +22,7 @@ Route::post('/account/userlogin',[App\Http\Controllers\AccountController::class,
 });
 
 //ログインすればアクセス可
-// Route::group(['middleware'=>['auth']],function(){
+Route::group(['middleware'=>['auth']],function(){
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
     Route::get('/search', [App\Http\Controllers\SearchController::class, 'index'])->name('item.search');
@@ -33,7 +33,7 @@ Route::post('/account/userlogin',[App\Http\Controllers\AccountController::class,
     Route::get('/userslists/edit{id}', [UserslistController::class, 'edit'])->name('userslistsedit');
     Route::post('delete/{id}', [UserslistController::class, 'delete'])->name('userslistsdelete');
     Route::post('update/{id}', [UserslistController::class, 'update'])->name('userslistsupdate');
-// });
+});
 
 //管理者でログインすればアクセス可
 Route::group(['middleware' => ['auth', 'can:admin']], function () {
@@ -48,7 +48,7 @@ Route::group(['middleware' => ['auth', 'can:admin']], function () {
      // データを編集して会員一覧画面へ
      Route::post('/item/update',[App\Http\Controllers\ItemController::class,'update']);
      // 削除して会員一覧画面へ
-     Route::get('/item/delete',[App\Http\Controllers\ItemController::class,'delete']);
+     Route::get('/item/delete/{id}',[App\Http\Controllers\ItemController::class,'delete']);
 });
 
 Route::get('/logout',[App\Http\Controllers\AccountController::class,'userlogout'])->name('userlogout');
