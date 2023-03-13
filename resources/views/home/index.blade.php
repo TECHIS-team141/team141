@@ -67,7 +67,7 @@
     <table class="table table-condensed">
     <tr><th>新着日</th><th>カテゴリー</th><th>本のタイトル</th><th>在庫</th></tr>
     @foreach($items as $item)
-    <tr><td class="text-muted">{{$item->created_at}}</td><td class="text-muted">{{$item->type}}</td><td class="text-muted">{{$item->name}}</td><td class="text-muted">{{$item->status}}</td></tr>
+    <tr><td class="text-muted">{{$item->created_at}}</td><td class="text-muted">{{ App\Models\Item::TYPES[$item->type] }}</td><td class="text-muted">{{$item->name}}</td><td class="text-muted">{{ App\Models\Item::STOCK[$item->status] }}</td></tr>
     @endforeach
 
     </table>
